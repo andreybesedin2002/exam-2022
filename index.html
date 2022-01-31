@@ -1,0 +1,555 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <title>Jumpy</title>
+</head>
+
+<body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+
+<!-- NavBar -->
+<header class="header sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="pics/shop_img.png" alt="" width="50" height="50" class="d-inline-block align-text-top">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">+7 (800) 3331190</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">becedingenrix@gmail.com</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">FAQ</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<!-- NavBar Ending -->
+<main>
+    <div class="row d-flex" style="justify-content: space-around; text-align: center;">
+        <div class="col-lg-6 col-md-6 p-0 dark">
+            <img src="pics/img3.jpg" width="1000" height="600">
+        </div>
+        <div class="col-lg-6 col-md-6 p-0 dark">
+            <img src="pics/img2.jpeg" width="1000" height="600">
+        </div>
+
+    </div>
+
+    <!-- Гарантии -->
+    <section class="galery container-fluid bg-light" id="galery">
+        <div class="text-center py-5">
+            <h2 class="mb-3">Вам предоставляется большой выбор ресторанов по всей Москве</h2>
+            <div class="heading-line mx-auto bg-dark"></div>
+        </div>
+        <!-- <div class="row d-flex" style="justify-content: space-around; text-align: center;">
+             <div class="col-lg-4 col-md-6 p-0 dark">
+                 <div class="card-body">
+                     <img src="pics/DELI100.png" width="100px" alt="logo">
+                     <h5 class="card-title">Быстрая доставка</h5>
+                 </div>
+             </div>
+
+             <div class="col-lg-4 col-md-6 p-0dark">
+                 <div class="card-body">
+                     <img src="pics/QA100.png" width="100px" alt="logo">
+                     <h5 class="card-title">Гарантия качества</h5>
+                 </div>
+             </div>
+
+             <div class="col-lg-4 col-md-6 p-0dark">
+                 <div class="card-body">
+                     <img src="pics/TFS100.png" width="100px" alt="logo">
+                     <h5 class="card-title">Доставляем круглые сутки</h5>
+                 </div>
+             </div>
+
+         </div>-->
+    </section>
+    <!-- Конец Гарантии -->
+
+    <!-- Форма выбора -->
+    <section class="contacts container">
+        <div>
+            <div class="py-5">
+                <!--               <h2 class="mb-3">Выбор заведения</h2>-->
+                <div class="heading-line bg-dark"></div>
+                <div class="heading-line "></div>
+            </div>
+
+            <div class="d-flex border">
+
+                <div class="">
+                    <div class="">
+                        <p>
+                            <label for="select">Административный округ</label><br>
+                            <select id="select" style="width: 100%;">
+                                <optgroup>
+                                    <option value="">Не выбрано</option>
+                                    <option value="">Западный административный округ</option>
+                                    <option value="">Северный административный округ</option>
+                                    <option value="">Центральный административный округ</option>
+                                    <option value="">Юго-Восточный административный округ</option>
+                                    <option value="">Южный административный округ</option>
+                                    <option value="">Северо-Восточный административный округ</option>
+                                    <option value="">Северо-Западный административный округ</option>
+                                    <option value="">Восточный административный округ</option>
+                                    <option value="">Юго-Западный административный округ</option>
+                                    <option value="">Новомосковский административный округ</option>
+                                    <option value="">Троицкий административный округ</option>
+                                </optgroup>
+                            </select>
+                        </p>
+
+                        <p>
+                            <label for="select" style="width: 100%;">Район</label><br>
+                            <select id="selec">
+                                <optgroup>
+                                    <option value="">Не выбрано</option>
+                                    <option value="">Дмитровский район</option>
+                                    <option value="">район Тропарёво-Никулино</option>
+                                    <option value="">Можайский район</option>
+                                    <option value="">район Проспект Вернадского</option>
+                                    <option value="">район Фили-Давыдково</option>
+                                    <option value="">Бескудниковский район</option>
+                                    <option value="">район Дорогомилово</option>
+                                    <option value="">Тимирязевский район</option>
+                                    <option value="">Район хамовники</option>
+                                    <option value="">Басманный район</option>
+                                    <option value="">Район Лефортово</option>
+                                    <option value="">Мещанский район</option>
+                                    <option value="">район Восточное Дегунино</option>
+                                    <option value="">район Нагатино-Садовники</option>
+                                    <option value="">Алексеевкий район</option>
+                                    <option value="">район Орехово-Борисово Южное</option>
+                                    <option value="">район Северное Тушино</option>
+                                    <option value="">район Бибирево</option>
+                                    <option value="">район Перово</option>
+                                    <option value="">район Кузьминки</option>
+                                    <option value="">Академический район</option>
+                                    <option value="">Гагаринский район</option>
+                                    <option value="">район Черёмушки</option>
+                                    <option value="">район Строгино</option>
+                                    <option value="">район Щукино</option>
+                                    <option value="">район Аэропорт</option>
+                                    <option value="">район Арбат</option>
+                                    <option value="">район Гольяново</option>
+                                    <option value="">Таганский район</option>
+                                    <option value="">район Якиманка</option>
+                                    <option value="">Красносельский район</option>
+                                    <option value="">поселение Щербинка</option>
+                                    <option value="">район Западное Дегунино</option>
+                                    <option value="">Савёловский район</option>
+                                    <option value="">Бабушинский район</option>
+                                    <option value="">Бутырский район</option>
+                                    <option value="">Ярославский район</option>
+                                    <option value="">район Вешняки</option>
+                                    <option value="">район Соколиная Гора</option>
+                                    <option value="">район Филёвский парк</option>
+                                    <option value="">район Сокольники</option>
+                                    <option value="">Рязанский район</option>
+                                    <option value="">район Бирюлёво Западное</option>
+                                    <option value="">Донской район</option>
+                                    <option value="">район Зюзино</option>
+                                    <option value="">район Замоскворечье</option>
+                                    <option value="">Пресненский район</option>
+                                    <option value="">район Коптево</option>
+                                    <option value="">Останкинский район</option>
+                                    <option value="">район Богородское</option>
+                                    <option value="">район Марьино</option>
+                                    <option value="">район Царицино</option>
+                                    <option value="">Ломоносовский район</option>
+                                    <option value="">район Северное Бутово</option>
+                                    <option value="">район Беговой</option>
+                                    <option value="">район Коньково</option>
+                                    <option value="">Войковский район</option>
+                                    <option value="">район Косино-Ухтомский</option>
+                                    <option value="">район Марфино</option>
+                                    <option value="">район Марьина роща</option>
+                                    <option value="">район Северное Медведкого</option>
+                                    <option value="">район Нагатинский Затон</option>
+                                    <option value="">Южнопортовый район</option>
+                                    <option value="">Обручевский район</option>
+                                    <option value="">район Выхино-Жулебино</option>
+                                    <option value="">район Хорошёво-Мнёвники</option>
+                                    <option value="">район Люблино</option>
+                                    <option value="">район Чертаново Южное</option>
+                                    <option value="">район Чертаново Центральное</option>
+                                    <option value="">район Отрадное</option>
+                                    <option value="">Данилоский район</option>
+                                    <option value="">район Москворечье-Сабурово</option>
+                                    <option value="">район Южное Тушино</option>
+                                    <option value="">район Лианозово</option>
+                                    <option value="">Лосиноостровский район</option>
+                                    <option value="">район Преображенское</option>
+                                    <option value="">район Бирюлёво Восточное</option>
+                                    <option value="">район Восточное Измайлово</option>
+                                    <option value="">район Новогиреево</option>
+                                    <option value="">район Свиблово</option>
+                                    <option value="">район Южное Медведково</option>
+                                    <option value="">район Зябликово</option>
+                                    <option value="">район Измайлово</option>
+                                    <option value="">район Новокосино</option>
+                                    <option value="">Алтуфьевский район</option>
+                                    <option value="">район Ростокино</option>
+                                    <option value="">поселение Щаповское</option>
+                                    <option value="">Нагорный район</option>
+                                    <option value="">Головинский район</option>
+                                    <option value="">район Покровское-Стрешнево</option>
+                                    <option value="">Тверской район</option>
+                                </optgroup>
+                            </select>
+                        </p>
+                        <p>
+                            <label for="select">Тип</label><br>
+                            <select id="sele">
+                                <optgroup>
+                                    <option value="">Не выбрано</option>
+                                    <option value="">кафе</option>
+                                    <option value="">буфет</option>
+                                    <option value="">ресторан</option>
+                                    <option value="">бар</option>
+                                    <option value="">предприятие быстрого обслуживания</option>
+                                    <option value="">магазин (отдел кулинарии)</option>
+                                    <option value="">столовая</option>
+                                    <option value="">закусочная</option>
+                                    <option value="">кафетерий</option>
+                                </optgroup>
+                            </select>
+                        </p><p>
+                            <label for="select">Скидка</label><br>
+                            <select id="sel" style="width: 100%;">
+                                <optgroup>
+                                    <option value="">Не выбрано</option>
+                                    <option value="">Я являюсь студентом ВУЗа</option>
+                                </optgroup>
+                            </select>
+                        </p>
+                        <p>
+                            <input class="poisk" type="button" style="width: 100px; height: 50px" value="Найти">
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        </div>
+        <div id="cafe"></div>
+        <div class="mt-xl-4">
+            <div class="d-none d-xl-block">
+                <div class="row d-flex justify-content-be"></div>
+                <div class="row d-flex justify-content-between align-items-start px-3 py-2 border rounded-top">
+                <div class="col-3">Название</div>
+                <div class="col-2">Тип</div>
+                <div class="col-6">Адрес</div>
+                <div class="col-1">Действия</div>
+            </div>
+            </div>
+            <div class="">
+                <div class="company-list list-group">
+                    <div id="companyItem-template"
+                         class="row list-group-item d-flex justify-content-between align-items-center d-none">
+                        <div class="col-12 col-xl-3 company-name">Название</div>
+                        <div class="col-12 col-xl-2 company-type">Тип</div>
+                        <div class="col-12 col-xl-6 company-address">Адрес</div>
+                        <div class="col-12 col-xl-1 company-buttons d-flex justify-content-end">
+                            <a href="#gal">
+                                <button
+                                        class="btn btn-outline-primary btn-sm chooseButt">Выбрать
+                                </button>
+                            </a>
+                        </div>
+                        <div class="company-admArea "></div>
+                        <div class="company-district "></div>
+                        <div class="company-discount "></div>
+                        <div class="company-rating "></div>
+                    </div>
+                </div>
+            </div>
+            <ul class="pagination justify-content-center mt-4">
+                <div style="height: 38px" class="page-item pag-butt-back border">
+                    <p  style="justify-content: space-around; text-align: center;">Предыдущая</p>
+                </div>
+                <div style="width: 38px;height: 38px;justify-content: space-around; text-align: center;" class="page-item pag-butt-1 border">
+                    1
+                </div>
+                <div style="width: 38px;height: 38px;justify-content: space-around; text-align: center;" class="page-item pag-butt-2 border" aria-current="page">
+                    2
+                </div>
+                <div style="width: 38px;height: 38px; justify-content: space-around; text-align: center;" class="page-item pag-butt-3 border">
+                    3
+                </div>
+                <div style="width: 38px;height: 38px; justify-content: space-around; text-align: center;" class="page-item pag-butt-4 border">
+                    4
+                </div>
+                <div style="height: 38px" class="page-item pag-butt-next border">
+                    <p  style="justify-content: space-around; text-align: center;" >Следующая</p>
+                </div>
+            </ul>
+        </div>
+
+    </section>
+    <!-- Конец Формы -->
+
+    <!-- Меню -->
+    <section class="gal container-fluid bg-light" style="display: none;" id="gal">
+        <div class="text-center py-5">
+            <h2 class="mb-3">Меню:</h2>
+            <div class="heading-line mx-auto bg-dark"></div>
+        </div>
+
+        <div class="row d-flex" style="justify-content: space-around; text-align: center;">
+            <div class="col-lg-4 col-md-6 p-0 dark">
+                <div class="card-body">
+                    <img src="pics/salat.jpg" width="200px" alt="logo" class="rounded">
+                    <h5 class="card-title">Салат "Цезарь"</h5>
+                    <p class="card-text">Классический салат</p>
+                    <p class="card-text price" id="set-1"></p>
+                    <!-- <p>
+                        <label for="number"></label>
+                        <input type="number" id="number1" min="0">
+                    </p> -->
+                    <div class="btn-toolbar mb-3 justify-content-center" role="toolbar"
+                         aria-label="Toolbar with button groups">
+                        <div class="btn-group me-2 menuButt" role="group" aria-label="First group">
+                            <button type="button" class="btn btn-outline-secondary text-danger minuss">-</button>
+                            <span id="NO1" type="button" class="btn btn-outline-secondary pole"> </span>
+                            <button type="button" class="btn btn-outline-secondary text-success pluss">+</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 p-0 dark">
+                <div class="card-body">
+                    <img src="pics/mors.jpg" width="200px" alt="logo" class="rounded">
+                    <h5 class="card-title">Морс</h5>
+                    <p class="card-text">Напиток</p>
+                    <p class="card-text price" id="set-2"></p>
+                    <div class="btn-toolbar mb-3 justify-content-center" role="toolbar"
+                         aria-label="Toolbar with button groups">
+                        <div class="btn-group me-2 menuButt" role="group" aria-label="First group">
+                            <button type="button" class="btn btn-outline-secondary text-danger minuss">-</button>
+                            <span id="NO2" type="button" class="btn btn-outline-secondary pole"> </span>
+                            <button type="button" class="btn btn-outline-secondary text-success pluss">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 p-0 dark">
+                <div class="card-body">
+                    <img src="pics/kvas.jpg" width="200px" alt="logo" class="rounded">
+                    <h5 class="card-title">Квас</h5>
+                    <p class="card-text">Напиток</p>
+                    <p class="card-text price" id="set-3"></p>
+                    <div class="btn-toolbar mb-3 justify-content-center" role="toolbar"
+                         aria-label="Toolbar with button groups">
+                        <div class="btn-group me-2 menuButt" role="group" aria-label="First group">
+                            <button type="button" class="btn btn-outline-secondary text-danger minuss">-</button>
+                            <span id="NO3" type="button" class="btn btn-outline-secondary pole"> </span>
+                            <button type="button" class="btn btn-outline-secondary text-success pluss">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 p-0 dark">
+                <div class="card-body">
+                    <img src="pics/maxito.jpg" width="200px" alt="logo" class="rounded">
+                    <h5 class="card-title">Мохито</h5>
+                    <p class="card-text">Напиток</p>
+                    <p class="card-text price" id="set-4"></p>
+                    <div class="btn-toolbar mb-3 justify-content-center" role="toolbar"
+                         aria-label="Toolbar with button groups">
+                        <div class="btn-group me-2 menuButt" role="group" aria-label="First group">
+                            <button type="button" class="btn btn-outline-secondary text-danger minuss">-</button>
+                            <span id="NO4" type="button" class="btn btn-outline-secondary pole"> </span>
+                            <button type="button" class="btn btn-outline-secondary text-success pluss">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 p-0 dark">
+                <div class="card-body">
+                    <img src="pics/sok.jpg" width="200px" alt="logo" class="rounded">
+                    <h5 class="card-title">Сок</h5>
+                    <p class="card-text">Напиток</p>
+                    <p class="card-text price" id="set-5"></p>
+                    <div class="btn-toolbar mb-3 justify-content-center" role="toolbar"
+                         aria-label="Toolbar with button groups">
+                        <div class="btn-group me-2 menuButt" role="group" aria-label="First group">
+                            <button type="button" class="btn btn-outline-secondary text-danger minuss">-</button>
+                            <span id="NO5" type="button" class="btn btn-outline-secondary pole"> </span>
+                            <button type="button" class="btn btn-outline-secondary text-success pluss">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 p-0 dark">
+                <div class="card-body">
+                    <img src="pics/sup.jpg" width="200px" alt="logo" class="rounded">
+                    <h5 class="card-title">Суп</h5>
+                    <p class="card-text">Первое блюдо</p>
+                    <p class="card-text price" id="set-6"></p>
+                    <div class="btn-toolbar mb-3 justify-content-center" role="toolbar"
+                         aria-label="Toolbar with button groups">
+                        <div class="btn-group me-2 menuButt" role="group" aria-label="First group">
+                            <button type="button" class="btn btn-outline-secondary text-danger minuss">-</button>
+                            <span id="NO6" type="button" class="btn btn-outline-secondary pole"> </span>
+                            <button type="button" class="btn btn-outline-secondary text-success pluss">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 p-0 dark">
+                <div class="card-body">
+                    <img src="pics/befstroganof.jpg.jpg" width="200px" alt="logo" class="rounded">
+                    <h5 class="card-title">Бевстроганов</h5>
+                    <p class="card-text">Второе блюдо</p>
+                    <p class="card-text price" id="set-7"></p>
+                    <div class="btn-toolbar mb-3 justify-content-center" role="toolbar"
+                         aria-label="Toolbar with button groups">
+                        <div class="btn-group me-2 menuButt" role="group" aria-label="First group">
+                            <button type="button" class="btn btn-outline-secondary text-danger minuss">-</button>
+                            <span id="NO7" type="button" class="btn btn-outline-secondary pole"> </span>
+                            <button type="button" class="btn btn-outline-secondary text-success pluss">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 p-0 dark">
+                <div class="card-body">
+                    <img src="pics/pasta.jpg" width="200px" alt="logo" class="rounded">
+                    <h5 class="card-title">Паста</h5>
+                    <p class="card-text">Второе блюдо</p>
+                    <p class="card-text price" id="set-8"></p>
+                    <div class="btn-toolbar mb-3 justify-content-center" role="toolbar"
+                         aria-label="Toolbar with button groups">
+                        <div class="btn-group me-2 menuButt" role="group" aria-label="First group">
+                            <button type="button" class="btn btn-outline-secondary text-danger minuss">-</button>
+                            <span id="NO8" type="button" class="btn btn-outline-secondary pole"> </span>
+                            <button type="button" class="btn btn-outline-secondary text-success pluss">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 p-0 dark">
+                <div class="card-body">
+                    <img src="pics/morodgenoe.jpg" width="200px" alt="logo" class="rounded">
+                    <h5 class="card-title">Мороженое</h5>
+                    <p class="card-text">Десерт</p>
+                    <p class="card-text price" id="set-9"></p>
+                    <div class="btn-toolbar mb-3 justify-content-center" role="toolbar"
+                         aria-label="Toolbar with button groups">
+                        <div class="btn-group me-2 menuButt" role="group" aria-label="First group">
+                            <button type="button" class="btn btn-outline-secondary text-danger minuss">-</button>
+                            <span id="NO9" type="button" class="btn btn-outline-secondary pole"> </span>
+                            <button type="button" class="btn btn-outline-secondary text-success pluss">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 p-0 dark">
+                <div class="card-body">
+                    <img src="pics/tortic.jpg.jpg" width="200px" alt="logo" class="rounded">
+                    <h5 class="card-title">Тохтик</h5>
+                    <p class="card-text">Десерт</p>
+                    <p class="card-text price" id="set-10"></p>
+                    <div class="btn-toolbar mb-3 justify-content-center" role="toolbar"
+                         aria-label="Toolbar with button groups">
+                        <div class="btn-group me-2 menuButt" role="group" aria-label="First group">
+                            <button type="button" class="btn btn-outline-secondary text-danger minuss">-</button>
+                            <span id="NO10" type="button" class="btn btn-outline-secondary pole"> </span>
+                            <button type="button" class="btn btn-outline-secondary text-success pluss">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Конец меню -->
+
+    <!-- Цена -->
+    <section class="contacts container ">
+        <div class="text-left py-5">
+            <h2 class="mb-3" style="text-align: center">Оформление заказа</h2>
+            <div class="heading-line mx-auto bg-dark"></div>
+            <div class="heading-line mx-auto"></div>
+        </div>
+        <div class="  justify-content-around container-fluid bg-light border" style="border-color: coral">
+            <div style="width: fit-content; align-content: center">
+                <label style="margin-top: 20px">
+                    Я студент ВУЗа
+                </label>
+                <input type="checkbox" id="socialka" value="">
+            </div>
+            <div style="width: fit-content;">
+                <label>
+                    В два раза больше
+                </label>
+                <input type="checkbox" value="">
+            </div>
+
+            <h1>Итого:<span class=" fs-1" id="summary"></span></h1>
+            <input type="button" style="width: 200px; margin-bottom: 20px" value="Оформить заказ">
+        </div>
+
+
+    </section>
+    <!-- Конец цены -->
+</main>
+<!-- Футер начало -->
+<footer class="footer" style="margin-top: 100px">
+
+    <div class="text-center py-4 border-top text-dark">
+      <!--  <img src="pics/Jumpy.png" width="60px" alt="logo">-->
+        <div class="bd-example">
+            <address>
+                Москва, ВДНХ, 25<br>
+                <a class="nav-link" href="#">+7 (800) 3331190</a>
+            <!--    <a>becedingenrix@gmail.com</a>-->
+
+            </address>
+            <address>
+                <a href="mailto:first.last@example.com">becedingenrix@gmail.com</a>
+            </address>
+        </div>
+    </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="main.js"></script>
+</footer>
+<!-- Футер конец -->
+</body>
+
+</html>
