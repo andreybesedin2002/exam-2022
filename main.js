@@ -9,7 +9,7 @@ window.onload = function () {
 // console.log(maketOfDude);
     addListenerFindBtn();
 
-    document.getElementById('socialka').addEventListener('change', socialGay);
+    document.getElementById('socialka').addEventListener('change', social);
 
     let menuButt = document.querySelectorAll('.menuButt');
     menuButt.forEach(function (btn) {
@@ -76,11 +76,6 @@ function GetInformationAboutCom() {
 
     xhr.open('GET', url);
 
-    xhr.setRequestHeader('Access-Control-Allow-Credentials', true);
-    xhr.setRequestHeader('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
-    xhr.setRequestHeader('Access-Control-Allow-Headers', 'Origin, Product-Session, X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept, Referer, User-Agent');
-    xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
-
     xhr.responseType = 'json';
     xhr.onload = function () {
         console.log(this.response);
@@ -92,7 +87,7 @@ function GetInformationAboutCom() {
 
 }
 
-function socialGay() {
+function social() {
     let checkbox = document.getElementById('socialka');
     if (checkbox.checked == true) {
         // alert(currentCom['socialDiscount']);
