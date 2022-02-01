@@ -57,27 +57,22 @@ function setFunk(event) {
 
 
 function GetInformationAboutCom() {
+    let xhr = new XMLHttpRequest();
+    xhr.open("GET", "http://exam-2022-1-api.std-900.ist.mospolytech.ru/api/restaurants?api_key=3ca35cf9-4ed8-4ddf-bbee-c0ea9de1b903");
+    xhr.responseType = "json";
+    xhr.onload = function () {
+  /*
+    }
     let url_add = "http://exam-2022-1-api.std-900.ist.mospolytech.ru/api/restaurants";
     let api_key = "bec7c4f3-a6b3-4175-a1bb-4d855c9a187c";
     let url = new URL(url_add);
     url.searchParams.append("api_key", api_key);
-  /*  axios.post('https://exam-2022-1-api.std-900.ist.mospolytech.ru/api/restaurants?api_key=b47b35cf-b327-43d6-9683-88e83dd06714', data, config)
-        .then((res) => {
-            alert("dsa")
-            console.log(res)
-        })
-        .catch((err) => {
-            alert("dsa")
-            console.log(err)
-        });
-*/
-
     let xhr = new XMLHttpRequest();
 
     xhr.open('GET', url);
 
     xhr.responseType = 'json';
-    xhr.onload = function () {
+    xhr.onload = function () {*/
         console.log(this.response);
         sortComElements(this.response);
         data = this.response
