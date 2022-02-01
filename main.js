@@ -58,7 +58,7 @@ function setFunk(event) {
 
 function GetInformationAboutCom() {
     let xhr = new XMLHttpRequest();
-    xhr.open("GET", "http://exam-2022-1-api.std-900.ist.mospolytech.ru/api/restaurants?api_key=3ca35cf9-4ed8-4ddf-bbee-c0ea9de1b903");
+    xhr.open("GET", "https://exam-2022-1-api.std-900.ist.mospolytech.ru/api/restaurants?api_key=3ca35cf9-4ed8-4ddf-bbee-c0ea9de1b903");
     xhr.responseType = "json";
     xhr.onload = function () {
   /*
