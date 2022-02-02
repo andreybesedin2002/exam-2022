@@ -4,21 +4,76 @@ window.onload = function () {
     // let findButt = document.querySelector('.poisk');
     // findButt.addEventListener('click', GetInformationAboutCom); 
     maketOfDude = document.getElementById('companyItem-template').cloneNode(true);
-    pagination()
+
     GetInformationAboutCom();
 // console.log(maketOfDude);
     addListenerFindBtn();
 
-    document.getElementById('socialka').addEventListener('change', social);
+    pagination()
+
+    document.getElementById('socialka').addEventListener('change', socialGuy);
+    document.getElementById('xTwo').addEventListener('change', xTwoDiscount);
 
     let menuButt = document.querySelectorAll('.menuButt');
     menuButt.forEach(function (btn) {
         btn.addEventListener('click', setFunk)
     })
+
+
 }
 
 let data
-let globSum
+let globSum = 0
+
+function xTwo(btn) {
+    if (btn != undefined) {
+        btn.innerHTML = Number(btn.innerHTML) * 2
+    }
+
+
+}
+
+function dTwo(btn) {
+    if (btn != undefined) {
+        btn.innerHTML = Number(btn.innerHTML) / 2
+    }
+
+
+}
+
+function xTwoDiscount() {
+    let summary = document.getElementById('summary');
+    box = document.getElementById('xTwo')
+    let pole = document.querySelectorAll('.pole');
+    socialka = document.getElementById('socialka')
+    if (box.checked) {
+        pole.forEach(function (btn) {
+            xTwo(btn)
+        })
+        if (socialka.checked) {
+            globSum = globSum * (100 - currentCom["socialDiscount"]) / 100
+        }
+        globSum = Number(Number(globSum) * 1.6)
+    } else {
+        pole.forEach(function (btn) {
+            dTwo(btn)
+
+        })
+        if (socialka.checked) {
+            globSum = globSum / (100 - currentCom["socialDiscount"]) * 100
+        }
+        globSum = Number(Number(globSum) / 1.6)
+    }
+    summary.innerHTML = globSum;
+}
+
+function currentDiscount() {
+    disc = 1
+    if (document.getElementById('socialka').checked) {
+        disc = ((100 - currentCom["socialDiscount"]) / 100)
+    }
+    return disc;
+}
 
 function setFunk(event) {
     let oper = event.target.innerHTML;
@@ -28,21 +83,27 @@ function setFunk(event) {
     switch (oper) {
         case '+':
             // alert("+")
-            pole.innerHTML = Number(pole.innerHTML) + 1;
+            pole.innerHTML = Number(pole.innerHTML) + 1 * xTwoChecher();
 
             // alert(summary.innerHTML);
-            summary.innerHTML = Number(summary.innerHTML) + price;
+            summary.innerHTML = Number(summary.innerHTML) + price * currentDiscount();
             globSum = summary.innerHTML;
             // alert(summary.innerHTML);
             break
         case '-':
             // alert("-")
             if (pole.innerHTML != 0 && pole.innerHTML != NaN) {
-                pole.innerHTML = Number(pole.innerHTML) - 1;
+                pole.innerHTML = Number(pole.innerHTML) - 1 * xTwoChecher();
 
                 // alert(summary.innerHTML);
-                summary.innerHTML = Number(summary.innerHTML) - price;
-                globSum = summary.innerHTML;
+                if (document.getElementById('socialka').checked) {
+                    summary.innerHTML = Number(summary.innerHTML) - price * ((100 - currentCom["socialDiscount"]) / 100);
+                    globSum = summary.innerHTML;
+                } else {
+                    summary.innerHTML = Number(summary.innerHTML) - price;
+                    globSum = summary.innerHTML;
+                }
+
                 // alert(summary.innerHTML);
             }
             break
@@ -55,67 +116,107 @@ function setFunk(event) {
     // alert(oper);
 }
 
+function xTwoChecher() {
+    box = document.getElementById('xTwo')
+    if (box.checked) {
+        return 2
+    } else {
+        return 1
+    }
+}
 
 function GetInformationAboutCom() {
-    let xhr = new XMLHttpRequest();
     xhr.open("GET", "https://edu.std-900.ist.mospolytech.ru/api/restaurants?api_key=3ca35cf9-4ed8-4ddf-bbee-c0ea9de1b903");
-    xhr.responseType = "json";
+
+    xhr.responseType = 'json';
     xhr.onload = function () {
-        /*
-          }
-          let url_add = "http://exam-2022-1-api.std-900.ist.mospolytech.ru/api/restaurants";
-          let api_key = "bec7c4f3-a6b3-4175-a1bb-4d855c9a187c";
-          let url = new URL(url_add);
-          url.searchParams.append("api_key", api_key);
-          let xhr = new XMLHttpRequest();
-
-          xhr.open('GET', url);
-
-          xhr.responseType = 'json';
-          xhr.onload = function () {*/
         console.log(this.response);
-        sortComElements(this.response);
+        getFirstComs(this.response);
+        getFilters(this.response);
         data = this.response
+
     }
     xhr.send();
 
 
 }
 
-function social() {
+function getFilters(restaurants) {
+    let AUs = new Set();
+    let districts = new Set();
+    let types = new Set();
+
+    for (let restaurant of restaurants) {
+        AUs.add(restaurant.admArea);
+        districts.add(restaurant.district);
+        types.add(restaurant.typeObject);
+    }
+
+    renderAUs(AUs);
+    renderDistricts(districts);
+    renderTypes(types);
+}
+
+function renderAUs(AUs) { //AU - administrative unit
+    let selector = document.querySelector("#select");
+    for (let AU of AUs) {
+        if (AU == null) continue;
+        let option = document.createElement("option");
+        option.innerHTML = AU;
+        selector.appendChild(option);
+    }
+}
+
+function renderDistricts(districts) {
+    let selector = document.querySelector("#selec");
+    for (let district of districts) {
+        if (district == null) continue;
+        let option = document.createElement("option");
+        option.innerHTML = district;
+        selector.appendChild(option);
+    }
+}
+
+function renderTypes(types) {
+    let selector = document.querySelector("#sele");
+    for (let type of types) {
+        if (type == null) continue;
+        let option = document.createElement("option");
+        option.innerHTML = type;
+        selector.appendChild(option);
+    }
+}
+
+function socialGuy() {
     let checkbox = document.getElementById('socialka');
-    if (checkbox.checked == true) {
-        // alert(currentCom['socialDiscount']);
-        // alert(globSum);
-        // alert(currentCom["socialPrivileges"])
-        if (currentCom["socialPrivileges"] == true) {
-            globSum = globSum * (100 - currentCom["socialDiscount"]) / 100
-
-
-        } else {
-            document.getElementById('socialka').disabled;
-        }
-    } else {
-        if (currentCom["socialPrivileges"] == true) {
-            globSum = globSum / (100 - currentCom["socialDiscount"]) * 100
+    if (globSum != 0) {
+        if (checkbox.checked == true) {
+            // alert(currentCom['socialDiscount']);
             // alert(globSum);
+            // alert(currentCom["socialPrivileges"])
+            if (currentCom["socialPrivileges"] == true) {
 
+                globSum = globSum * (100 - currentCom["socialDiscount"]) / 100
+            } else {
+
+            }
         } else {
-            document.getElementById('socialka').disabled;
+            if (currentCom["socialPrivileges"] == true) {
+                globSum = globSum / (100 - currentCom["socialDiscount"]) * 100
+            } else {
+                document.getElementById('socialka').disabled;
+            }
         }
     }
     document.getElementById('summary').innerHTML = globSum
 }
 
-function xTwo(params) {
 
-}
-
-function sortComElements(array) {
+function getFirstComs(array) {
     let companyList = document.querySelector('.company-list');
     let counter = 0
     sortByRate(array);
-    while (counter < 5) {
+    while (counter < 10) {
         // for (let element of array) {
         //     companyList.append(createComBlock(element));
         // }
@@ -132,9 +233,7 @@ function createComBlock(company) {
     item.querySelector('.company-name').innerHTML = company['name'];
     item.querySelector('.company-type').innerHTML = company['typeObject'];
     item.querySelector('.company-address').innerHTML = company['address'];
-    item.querySelector('.company-admArea').innerHTML = company['admArea'];
-    item.querySelector('.company-district').innerHTML = company['district'];
-    item.querySelector('.company-discount').innerHTML = company['socialDiscount'];
+
     item.querySelector('.company-rating').innerHTML = "Рейтинг " + company['rate'] / 20;
     item.setAttribute('id', company['id']);
     item.classList.remove('d-none');
@@ -154,9 +253,8 @@ function createComBlockforFilter(company) {
     item.querySelector('.company-name').innerHTML = company['name'];
     item.querySelector('.company-type').innerHTML = company['typeObject'];
     item.querySelector('.company-address').innerHTML = company['address'];
-    item.querySelector('.company-admArea').innerHTML = company['admArea'];
-    item.querySelector('.company-district').innerHTML = company['district'];
-    item.querySelector('.company-discount').innerHTML = company['socialDiscount'];
+
+
     item.querySelector('.company-rating').innerHTML = "Рейтинг " + company['rate'] / 20;
     item.setAttribute('id', company['id']);
     item.classList.remove('d-none');
@@ -171,7 +269,7 @@ function createComBlockforFilter(company) {
 
 }
 
-let sortedArray
+let sortedByRateResponse
 
 function sortByRate(array) {
     array.sort()
@@ -184,14 +282,18 @@ function sortByRate(array) {
         }
         return 0;
     });
-    sortedArray = array
+    sortedByRateResponse = array;
 }
 
 function createMenu(id) {
     // alert(id);
     let menu = document.getElementById('gal');
     menu.style.display = 'block';
-
+    if (currentCom["socialPrivileges"] == true) {
+        document.getElementById('socialka').disabled = false;
+    } else {
+        document.getElementById('socialka').disabled = true;
+    }
 
     console.log(data);
     data.forEach(element => {
@@ -231,7 +333,7 @@ function addListenerFindBtn() {
         var filter4 = document.getElementById("sel");
         var discount = filter4.options[filter4.selectedIndex].text;
 
-        sortArray(data, district, area, type, discount)
+        sortArray(sortedByRateResponse, district, area, type, discount)
     }));
 }
 
@@ -280,28 +382,28 @@ function pagination() {
         updatePaginationStart(paginationMin + 1)
         setVisualClickPag(pag1, previousPag)
         previousPag = pag1
-        sortArray((current - 1) * 10, sortedArray, getCurFilters()[0], getCurFilters()[1], getCurFilters()[2], getCurFilters()[3])
+        sortArray((current - 1) * 10, sortedByRateResponse, getCurFilters()[0], getCurFilters()[1], getCurFilters()[2], getCurFilters()[3])
 
     })
     pag2.addEventListener('click', event => {
         updatePaginationStart(paginationMin + 2)
         setVisualClickPag(pag2, previousPag)
         previousPag = pag2
-        sortArray((current - 1) * 10, sortedArray, getCurFilters()[0], getCurFilters()[1], getCurFilters()[2], getCurFilters()[3])
+        sortArray((current - 1) * 10, sortedByRateResponse, getCurFilters()[0], getCurFilters()[1], getCurFilters()[2], getCurFilters()[3])
 
     })
     pag3.addEventListener('click', event => {
         updatePaginationStart(paginationMin + 3)
         setVisualClickPag(pag3, previousPag)
         previousPag = pag3
-        sortArray((current - 1) * 10, sortedArray, getCurFilters()[0], getCurFilters()[1], getCurFilters()[2], getCurFilters()[3])
+        sortArray((current - 1) * 10, sortedByRateResponse, getCurFilters()[0], getCurFilters()[1], getCurFilters()[2], getCurFilters()[3])
 
     })
     pag4.addEventListener('click', event => {
         updatePaginationStart(paginationMin + 4)
         setVisualClickPag(pag4, previousPag)
         previousPag = pag4
-        sortArray((current - 1) * 10, sortedArray, getCurFilters()[0], getCurFilters()[1], getCurFilters()[2], getCurFilters()[3])
+        sortArray((current - 1) * 10, sortedByRateResponse, getCurFilters()[0], getCurFilters()[1], getCurFilters()[2], getCurFilters()[3])
 
     })
 }
@@ -452,7 +554,7 @@ function sortArray(nonActiveCounter, array, district, area, type, discount) {
             }
         }
         if (point == 4) {
-            if (nonActiveCounter == 0 && activeCounter < 20) {
+            if (nonActiveCounter == 0 && activeCounter < 10) {
                 activeCounter = activeCounter + 1
                 companyList.append(createComBlockforFilter(array[counter + 1]))
             } else {
