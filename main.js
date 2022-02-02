@@ -170,7 +170,9 @@ function createComBlockforFilter(company) {
 
 
 }
+
 let sortedArray
+
 function sortByRate(array) {
     array.sort()
     array.sort(function (a, b) {
@@ -266,51 +268,40 @@ function pagination() {
     let pageNext = document.querySelector('.pag-butt-next');
 
     pagPrevious.addEventListener('click', event => {
-        updatePaginationStart(-1)
         clickPreviousPag(current, getPrevPag())
 
     })
     pageNext.addEventListener('click', event => {
-        updatePaginationStart(1)
         clickNextPag(current, getNextPag())
 
     })
 
     pag1.addEventListener('click', event => {
-        current = 1 + paginationStart
-        //    paginationStart = 0
-        //  alert("fgvh")
+        updatePaginationStart(paginationMin + 1)
         setVisualClickPag(pag1, previousPag)
         previousPag = pag1
-        console.log((current-1) * 10)
-        sortArray((0 + paginationStart) * 10, sortedArray, getCurFilters()[0], getCurFilters()[1], getCurFilters()[2], getCurFilters()[3])
+        sortArray((current - 1) * 10, sortedArray, getCurFilters()[0], getCurFilters()[1], getCurFilters()[2], getCurFilters()[3])
 
     })
     pag2.addEventListener('click', event => {
-        current = 1 + paginationStart
-        //   paginationStart = 1
+        updatePaginationStart(paginationMin + 2)
         setVisualClickPag(pag2, previousPag)
         previousPag = pag2
-        console.log((current-1) * 10)
-        sortArray((1 + paginationStart) * 10, sortedArray, getCurFilters()[0], getCurFilters()[1], getCurFilters()[2], getCurFilters()[3])
+        sortArray((current - 1) * 10, sortedArray, getCurFilters()[0], getCurFilters()[1], getCurFilters()[2], getCurFilters()[3])
 
     })
     pag3.addEventListener('click', event => {
-        current = 1 + paginationStart
-        //  paginationStart = 2
+        updatePaginationStart(paginationMin + 3)
         setVisualClickPag(pag3, previousPag)
         previousPag = pag3
-        console.log((current-1) * 10)
-        sortArray((2 + paginationStart) * 10, sortedArray, getCurFilters()[0], getCurFilters()[1], getCurFilters()[2], getCurFilters()[3])
+        sortArray((current - 1) * 10, sortedArray, getCurFilters()[0], getCurFilters()[1], getCurFilters()[2], getCurFilters()[3])
 
     })
     pag4.addEventListener('click', event => {
-        current = 1 + paginationStart
-        //  paginationStart = 3
+        updatePaginationStart(paginationMin + 4)
         setVisualClickPag(pag4, previousPag)
         previousPag = pag4
-        console.log((current-1) * 10)
-        sortArray((3 + paginationStart) * 10, sortedArray, getCurFilters()[0], getCurFilters()[1], getCurFilters()[2], getCurFilters()[3])
+        sortArray((current - 1) * 10, sortedArray, getCurFilters()[0], getCurFilters()[1], getCurFilters()[2], getCurFilters()[3])
 
     })
 }
@@ -323,7 +314,7 @@ function clickPreviousPag(cur, pag) {
      alert(cur)
      alert(paginationStart)*/
     //  alert("nsdsdfggdfs")
-    if(cur-1>0) {
+    if (cur - 1 > 0) {
         if (cur - 1 <= paginationMin) {
             paginationMin -= 4
             paginationMax -= 4
@@ -355,17 +346,8 @@ function setVisualClickPag(curPag, prevPag) {
 }
 
 function clickNextPag(cur, pag) {
-    /*alert("paginationMax")
 
-    alert(Boolean(Number(cur)<=Number(paginationMax)))
-    alert("next click")*/
-    pag.click()
-
-    // alert("cur")
-    //alert(paginationMax)
-    //  alert(cur)
     if (Number(cur) >= Number(paginationMax)) {
-        //      alert("nsdsdfggdfs")
         paginationMax += 4
         paginationMin += 4
         let pag1 = document.querySelector('.pag-butt-1');
@@ -377,6 +359,7 @@ function clickNextPag(cur, pag) {
         pag3.innerHTML = Number(pag3.innerHTML) + 4
         pag4.innerHTML = Number(pag4.innerHTML) + 4
     }
+    pag.click()
 }
 
 function getPrevPag(cur) {
@@ -387,10 +370,10 @@ function getPrevPag(cur) {
     let pag2 = document.querySelector('.pag-butt-2');
     let pag3 = document.querySelector('.pag-butt-3');
     let pag4 = document.querySelector('.pag-butt-4');
-    if ((paginationStart) % 4 == 0) return pag1
-    if ((paginationStart) % 4 == 1) return pag2
-    if ((paginationStart) % 4 == 2) return pag3
-    if ((paginationStart) % 4 == 3) return pag4
+    if ((current - 2) % 4 == 0) return pag1
+    if ((current - 2) % 4 == 1) return pag2
+    if ((current - 2) % 4 == 2) return pag3
+    if ((current - 2) % 4 == 3) return pag4
     return null
 
 }
@@ -403,26 +386,26 @@ function getNextPag(cur) {
     let pag2 = document.querySelector('.pag-butt-2');
     let pag3 = document.querySelector('.pag-butt-3');
     let pag4 = document.querySelector('.pag-butt-4');
-    if ((paginationStart) % 4 == 0) return pag1
-    if ((paginationStart) % 4 == 1) return pag2
-    if ((paginationStart) % 4 == 2) return pag3
-    if ((paginationStart) % 4 == 3) return pag4
+    if ((current) % 4 == 0) return pag1
+    if ((current) % 4 == 1) return pag2
+    if ((current) % 4 == 2) return pag3
+    if ((current) % 4 == 3) return pag4
     return null
 
 }
 
 function updatePaginationStart(add) {
-    paginationStart = paginationStart + add
+    current = add
 
-    if (paginationStart > paginationMax) {
-        paginationStart = currentElementsByFilters % 10 - 1
+    if (current > paginationMax) {
+        // current = currentElementsByFilters % 10 - 1
     }
 
-    if (paginationStart < paginationMin) {
-        paginationStart = paginationMin - 1
+    if (current < paginationMin) {
+        //  current = paginationMin - 1
     }
-    if (paginationStart < 0) {
-        paginationStart = 0
+    if (current < 0) {
+        current = 0
     }
 }
 
