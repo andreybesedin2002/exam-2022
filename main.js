@@ -170,7 +170,7 @@ function createComBlockforFilter(company) {
 
 
 }
-
+let sortedArray
 function sortByRate(array) {
     array.sort()
     array.sort(function (a, b) {
@@ -182,6 +182,7 @@ function sortByRate(array) {
         }
         return 0;
     });
+    sortedArray = array
 }
 
 function createMenu(id) {
@@ -282,7 +283,7 @@ function pagination() {
         setVisualClickPag(pag1, previousPag)
         previousPag = pag1
         console.log((current-1) * 10)
-        sortArray((0 + paginationStart) * 10, data, getCurFilters()[0], getCurFilters()[1], getCurFilters()[2], getCurFilters()[3])
+        sortArray((0 + paginationStart) * 10, sortedArray, getCurFilters()[0], getCurFilters()[1], getCurFilters()[2], getCurFilters()[3])
 
     })
     pag2.addEventListener('click', event => {
@@ -291,7 +292,7 @@ function pagination() {
         setVisualClickPag(pag2, previousPag)
         previousPag = pag2
         console.log((current-1) * 10)
-        sortArray((1 + paginationStart) * 10, data, getCurFilters()[0], getCurFilters()[1], getCurFilters()[2], getCurFilters()[3])
+        sortArray((1 + paginationStart) * 10, sortedArray, getCurFilters()[0], getCurFilters()[1], getCurFilters()[2], getCurFilters()[3])
 
     })
     pag3.addEventListener('click', event => {
@@ -300,7 +301,7 @@ function pagination() {
         setVisualClickPag(pag3, previousPag)
         previousPag = pag3
         console.log((current-1) * 10)
-        sortArray((2 + paginationStart) * 10, data, getCurFilters()[0], getCurFilters()[1], getCurFilters()[2], getCurFilters()[3])
+        sortArray((2 + paginationStart) * 10, sortedArray, getCurFilters()[0], getCurFilters()[1], getCurFilters()[2], getCurFilters()[3])
 
     })
     pag4.addEventListener('click', event => {
@@ -309,7 +310,7 @@ function pagination() {
         setVisualClickPag(pag4, previousPag)
         previousPag = pag4
         console.log((current-1) * 10)
-        sortArray((3 + paginationStart) * 10, data, getCurFilters()[0], getCurFilters()[1], getCurFilters()[2], getCurFilters()[3])
+        sortArray((3 + paginationStart) * 10, sortedArray, getCurFilters()[0], getCurFilters()[1], getCurFilters()[2], getCurFilters()[3])
 
     })
 }
