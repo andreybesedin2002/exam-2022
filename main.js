@@ -58,21 +58,21 @@ function setFunk(event) {
 
 function GetInformationAboutCom() {
     let xhr = new XMLHttpRequest();
-    xhr.open("GET", "https://exam-2022-1-api.std-900.ist.mospolytech.ru/api/restaurants?api_key=3ca35cf9-4ed8-4ddf-bbee-c0ea9de1b903");
+    xhr.open("GET", "https://edu.std-900.ist.mospolytech.ru/api/restaurants?api_key=3ca35cf9-4ed8-4ddf-bbee-c0ea9de1b903");
     xhr.responseType = "json";
     xhr.onload = function () {
-  /*
-    }
-    let url_add = "http://exam-2022-1-api.std-900.ist.mospolytech.ru/api/restaurants";
-    let api_key = "bec7c4f3-a6b3-4175-a1bb-4d855c9a187c";
-    let url = new URL(url_add);
-    url.searchParams.append("api_key", api_key);
-    let xhr = new XMLHttpRequest();
+        /*
+          }
+          let url_add = "http://exam-2022-1-api.std-900.ist.mospolytech.ru/api/restaurants";
+          let api_key = "bec7c4f3-a6b3-4175-a1bb-4d855c9a187c";
+          let url = new URL(url_add);
+          url.searchParams.append("api_key", api_key);
+          let xhr = new XMLHttpRequest();
 
-    xhr.open('GET', url);
+          xhr.open('GET', url);
 
-    xhr.responseType = 'json';
-    xhr.onload = function () {*/
+          xhr.responseType = 'json';
+          xhr.onload = function () {*/
         console.log(this.response);
         sortComElements(this.response);
         data = this.response
@@ -231,7 +231,8 @@ function addListenerFindBtn() {
         sortArray(data, district, area, type, discount)
     }));
 }
-function getCurFilters(){
+
+function getCurFilters() {
     var filter1 = document.getElementById("select");
     var area = filter1.options[filter1.selectedIndex].text;
 
@@ -254,7 +255,8 @@ let paginationMin = 0
 let current = 0
 let currentElementsByFilters = 0
 let previousPag
-function pagination(){
+
+function pagination() {
     let pag1 = document.querySelector('.pag-butt-1');
     let pag2 = document.querySelector('.pag-butt-2');
     let pag3 = document.querySelector('.pag-butt-3');
@@ -262,98 +264,176 @@ function pagination(){
     let pagPrevious = document.querySelector('.pag-butt-back');
     let pageNext = document.querySelector('.pag-butt-next');
 
-    pagPrevious.addEventListener('click',event => {updatePaginationStart(-1)
-        clickPreviousPag(current,getPag())})
-    pageNext.addEventListener('click',event => {updatePaginationStart(1)
-        clickNextPag(current,getPag())
+    pagPrevious.addEventListener('click', event => {
+        updatePaginationStart(-1)
+        clickPreviousPag(current, getPrevPag())
+
+    })
+    pageNext.addEventListener('click', event => {
+        updatePaginationStart(1)
+        clickNextPag(current, getNextPag())
 
     })
 
-    pag1.addEventListener('click',event => {current = 1 + paginationStart
-        paginationStart = 0
-        alert("fgvh")
-        setVisualClickPag(pag1,previousPag)
+    pag1.addEventListener('click', event => {
+        current = 1 + paginationStart
+        //    paginationStart = 0
+        //  alert("fgvh")
+        setVisualClickPag(pag1, previousPag)
         previousPag = pag1
-        sortArray((0+paginationStart)*10,data, getCurFilters()[0], getCurFilters()[1], getCurFilters()[2], getCurFilters()[3])})
-    pag2.addEventListener('click',event => {current = 2 + paginationStart
-        paginationStart = 1
-        setVisualClickPag(pag2,previousPag)
+        console.log((current-1) * 10)
+        sortArray((0 + paginationStart) * 10, data, getCurFilters()[0], getCurFilters()[1], getCurFilters()[2], getCurFilters()[3])
+
+    })
+    pag2.addEventListener('click', event => {
+        current = 1 + paginationStart
+        //   paginationStart = 1
+        setVisualClickPag(pag2, previousPag)
         previousPag = pag2
-        sortArray((1+paginationStart)*10,data, getCurFilters()[0], getCurFilters()[1], getCurFilters()[2], getCurFilters()[3])})
-    pag3.addEventListener('click',event => {current = 3 + paginationStart
-        paginationStart = 2
-        setVisualClickPag(pag3,previousPag)
+        console.log((current-1) * 10)
+        sortArray((1 + paginationStart) * 10, data, getCurFilters()[0], getCurFilters()[1], getCurFilters()[2], getCurFilters()[3])
+
+    })
+    pag3.addEventListener('click', event => {
+        current = 1 + paginationStart
+        //  paginationStart = 2
+        setVisualClickPag(pag3, previousPag)
         previousPag = pag3
-        sortArray((2+paginationStart)*10,data, getCurFilters()[0], getCurFilters()[1], getCurFilters()[2], getCurFilters()[3])})
-    pag4.addEventListener('click',event => {current = 4 + paginationStart
-        paginationStart = 3
-        setVisualClickPag(pag4,previousPag)
+        console.log((current-1) * 10)
+        sortArray((2 + paginationStart) * 10, data, getCurFilters()[0], getCurFilters()[1], getCurFilters()[2], getCurFilters()[3])
+
+    })
+    pag4.addEventListener('click', event => {
+        current = 1 + paginationStart
+        //  paginationStart = 3
+        setVisualClickPag(pag4, previousPag)
         previousPag = pag4
-        sortArray((3+paginationStart)*10,data, getCurFilters()[0], getCurFilters()[1], getCurFilters()[2], getCurFilters()[3])})
+        console.log((current-1) * 10)
+        sortArray((3 + paginationStart) * 10, data, getCurFilters()[0], getCurFilters()[1], getCurFilters()[2], getCurFilters()[3])
+
+    })
 }
-function  clickPreviousPag(cur,pag){
-   // alert("previous fun",cur)
-    if(cur - 1>paginationMin){
-        alert("previous click")
+
+function clickPreviousPag(cur, pag) {
+    // alert("previous fun",cur)
+    //  alert("previous click")
+
+    /* alert(paginationMin)
+     alert(cur)
+     alert(paginationStart)*/
+    //  alert("nsdsdfggdfs")
+    if(cur-1>0) {
+        if (cur - 1 <= paginationMin) {
+            paginationMin -= 4
+            paginationMax -= 4
+            let pag1 = document.querySelector('.pag-butt-1');
+            let pag2 = document.querySelector('.pag-butt-2');
+            let pag3 = document.querySelector('.pag-butt-3');
+            let pag4 = document.querySelector('.pag-butt-4');
+            pag1.innerHTML = Number(pag1.innerHTML) - 4
+            pag2.innerHTML = Number(pag2.innerHTML) - 4
+            pag3.innerHTML = Number(pag3.innerHTML) - 4
+            pag4.innerHTML = Number(pag4.innerHTML) - 4
+        }
         pag.click()
     }
 }
-function  df(){
+
+function df() {
 
 }
-function  setVisualClickPag(curPag,prevPag){
-   // alert("setVisualClickPag click")
-   // alert(curPag)
-   // alert(curPag.style.backgroundColor)
-    if(prevPag!= undefined) prevPag.style.backgroundColor = "white"
+
+function setVisualClickPag(curPag, prevPag) {
+    // alert("setVisualClickPag click")
+    // alert(curPag)
+    // alert(curPag.style.backgroundColor)
+    if (prevPag != undefined) prevPag.style.backgroundColor = "white"
     curPag.style.backgroundColor = "grey"
-   /// alert(curPag.style.backgroundColor)
+    /// alert(curPag.style.backgroundColor)
 
 }
-function  clickNextPag(cur,pag){
-    alert("fghjk")
-    alert(paginationMax)
-    alert(cur)
-    //if(cur  <=paginationMax){
-        alert("next click")
-        pag.click()
-    //}
+
+function clickNextPag(cur, pag) {
+    /*alert("paginationMax")
+
+    alert(Boolean(Number(cur)<=Number(paginationMax)))
+    alert("next click")*/
+    pag.click()
+
+    // alert("cur")
+    //alert(paginationMax)
+    //  alert(cur)
+    if (Number(cur) >= Number(paginationMax)) {
+        //      alert("nsdsdfggdfs")
+        paginationMax += 4
+        paginationMin += 4
+        let pag1 = document.querySelector('.pag-butt-1');
+        let pag2 = document.querySelector('.pag-butt-2');
+        let pag3 = document.querySelector('.pag-butt-3');
+        let pag4 = document.querySelector('.pag-butt-4');
+        pag1.innerHTML = Number(pag1.innerHTML) + 4
+        pag2.innerHTML = Number(pag2.innerHTML) + 4
+        pag3.innerHTML = Number(pag3.innerHTML) + 4
+        pag4.innerHTML = Number(pag4.innerHTML) + 4
+    }
 }
-function getPag(){
-    alert("sdf")
-    alert(paginationStart)
-    alert("sdf")
+
+function getPrevPag(cur) {
+    /*  alert("sdf")
+      alert(paginationStart)
+      alert("sdf")*/
     let pag1 = document.querySelector('.pag-butt-1');
     let pag2 = document.querySelector('.pag-butt-2');
     let pag3 = document.querySelector('.pag-butt-3');
     let pag4 = document.querySelector('.pag-butt-4');
-    if((paginationStart)%4 == 0) return pag1
-    if((paginationStart)%4 == 1) return pag2
-    if((paginationStart)%4 == 2) return pag3
-    if((paginationStart)%4 == 3) return pag4
+    if ((paginationStart) % 4 == 0) return pag1
+    if ((paginationStart) % 4 == 1) return pag2
+    if ((paginationStart) % 4 == 2) return pag3
+    if ((paginationStart) % 4 == 3) return pag4
     return null
 
 }
-function updatePaginationStart(add){
-    paginationStart = paginationStart + add
-    if(paginationStart>paginationMax) {
-        paginationStart =currentElementsByFilters%10-1
-    }
-    if(paginationStart<paginationMin) {
-        paginationStart=0
-    }
+
+function getNextPag(cur) {
+    /*  alert("sdf")
+      alert(paginationStart)
+      alert("sdf")*/
+    let pag1 = document.querySelector('.pag-butt-1');
+    let pag2 = document.querySelector('.pag-butt-2');
+    let pag3 = document.querySelector('.pag-butt-3');
+    let pag4 = document.querySelector('.pag-butt-4');
+    if ((paginationStart) % 4 == 0) return pag1
+    if ((paginationStart) % 4 == 1) return pag2
+    if ((paginationStart) % 4 == 2) return pag3
+    if ((paginationStart) % 4 == 3) return pag4
+    return null
 
 }
 
-function sortArray(nonActiveCounter,array, district, area, type, discount) {
-  //  alert("sort Array")
+function updatePaginationStart(add) {
+    paginationStart = paginationStart + add
+
+    if (paginationStart > paginationMax) {
+        paginationStart = currentElementsByFilters % 10 - 1
+    }
+
+    if (paginationStart < paginationMin) {
+        paginationStart = paginationMin - 1
+    }
+    if (paginationStart < 0) {
+        paginationStart = 0
+    }
+}
+
+function sortArray(nonActiveCounter, array, district, area, type, discount) {
+    //  alert("sort Array")
     let companyList = document.querySelector('.company-list');
 
     let activeCounter = 0// это счетчик именно элементов массива которые удовлетворяют сортировки
 
     let counter = 0// индек элемента в массиве
     companyList.innerHTML = "";
-  //  alert(array)
+    //  alert(array)
     while (counter < array.length - 2) {
         counter = counter + 1
         let current = array[counter + 1]
@@ -388,10 +468,10 @@ function sortArray(nonActiveCounter,array, district, area, type, discount) {
             }
         }
         if (point == 4) {
-            if(nonActiveCounter ==0 && activeCounter < 20) {
+            if (nonActiveCounter == 0 && activeCounter < 20) {
                 activeCounter = activeCounter + 1
                 companyList.append(createComBlockforFilter(array[counter + 1]))
-            }else{
+            } else {
                 nonActiveCounter = nonActiveCounter - 1
             }
         }
