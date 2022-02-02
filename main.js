@@ -126,6 +126,7 @@ function xTwoChecher() {
 }
 
 function GetInformationAboutCom() {
+    let xhr = new XMLHttpRequest();
     xhr.open("GET", "https://edu.std-900.ist.mospolytech.ru/api/restaurants?api_key=3ca35cf9-4ed8-4ddf-bbee-c0ea9de1b903");
 
     xhr.responseType = 'json';
