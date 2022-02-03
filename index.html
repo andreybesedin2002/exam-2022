@@ -9,7 +9,7 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="style.css">
     <title>Just Shop</title>
 </head>
 
@@ -49,10 +49,10 @@
 <!-- NavBar Ending -->
 <main>
     <!-- Уведомление -->
-    <div class="myToast align-items-center text-white bg-danger border-0" style="display: none;" id="myToast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div style="display: none" class=" myToast align-items-center text-white bg-success border-0"  id="myToast" role="alert" aria-live="assertive" aria-atomic="true">
         <div class="d-flex">
             <div class="toast-body">
-                Спасибо за заказ, в течении пары минут с вами свяжется оператор.
+                Спасибо за заказ, ожидайте звонка.
             </div>
             <button type="button" class="btn-close btn-close-white me-2 m-auto" id="closeToast"  aria-label="Close"></button>
         </div>
@@ -60,8 +60,8 @@
     <!-- Конец уведомления -->
 
     <!-- Карусель -->
-    <div class="row d-flex" style="justify-content: space-around; text-align: center;">
-        <div class="col-lg-6 col-md-6 p-0 dark">
+    <div class="row d-flex carrusel" >
+        <div class="col-lg-6 col-md-6 pmyToast-0 dark">
             <img src="pics/img3.jpg" width="1000" height="600">
         </div>
         <div class="col-lg-6 col-md-6 p-0 dark">
@@ -174,23 +174,23 @@
                 </div>
             </div>
             <div class="d-flex justify-content-center py-3">
-                <div style="height: 38px" class="page-item pag-butt-back border">
-                    <p  style="justify-content: space-around; text-align: center; user-select: none;">Предыдущая</p>
+                <div  style = "height: 38px" class=" page-item pag-butt-back border">
+                    <p class="last" >Предыдущая</p>
                 </div>
-                <div style="width: 38px;height: 38px; text-align: center;" class="page-item pag-butt-1 border">
+                <div   style="width: 38px;height: 38px;    text-align: center;"  class="page-item pag-butt-1 border">
                     1
                 </div>
-                <div style="width: 38px;height: 38px; text-align: center;" class="page-item pag-butt-2 border" aria-current="page">
+                <div  style="width: 38px;height: 38px;    text-align: center;"  class="page-item pag-butt-2 border" aria-current="page">
                     2
                 </div>
-                <div style="width: 38px;height: 38px;  text-align: center;" class="page-item pag-butt-3 border">
+                <div  style="width: 38px;height: 38px;    text-align: center;" class="page-item pag-butt-3 border">
                     3
                 </div>
-                <div style="width: 38px;height: 38px;  text-align: center;" class="page-item pag-butt-4 border">
+                <div  style="width: 38px;height: 38px;    text-align: center;" class=" page-item pag-butt-4 border">
                     4
                 </div>
-                <div style="height: 38px" class="page-item pag-butt-next border">
-                    <p  style=" text-align: center; user-select: none;" >Следующая</p>
+                <div   style = "height: 38px" class=" page-item pag-butt-next border">
+                    <p  class="next" >Следующая</p>
                 </div>
             </div>
         </div>
@@ -208,9 +208,9 @@
         <div class="row d-flex" style="justify-content: space-around; text-align: center;">
             <div class="col-lg-4 col-md-6 p-0 dark">
                 <div class="card-body">
-                    <img src="pics/salat.jpg" width="200px" alt="logo" class="rounded">
-                    <h5 class="card-title">Салат "Цезарь"</h5>
-                    <p class="card-text">Классический салат</p>
+                    <img src="" width="200px" alt="logo" class="rounded">
+                    <h5 class="card-title"></h5>
+                    <p class="card-text card-desc"></p>
                     <p class="card-text price" id="set-1"></p>
                     <!-- <p>
                         <label for="number"></label>
@@ -230,9 +230,9 @@
 
             <div class="col-lg-4 col-md-6 p-0 dark">
                 <div class="card-body">
-                    <img src="pics/mors.jpg" width="200px" alt="logo" class="rounded">
-                    <h5 class="card-title">Морс</h5>
-                    <p class="card-text">Напиток</p>
+                    <img src="" width="200px" alt="logo" class="rounded">
+                    <h5 class="card-title"></h5>
+                    <p class="card-text card-desc"></p>
                     <p class="card-text price" id="set-2"></p>
                     <div class="btn-toolbar mb-3 justify-content-center" role="toolbar"
                          aria-label="Toolbar with button groups">
@@ -247,9 +247,9 @@
 
             <div class="col-lg-4 col-md-6 p-0 dark">
                 <div class="card-body">
-                    <img src="pics/kvas.jpg" width="200px" alt="logo" class="rounded">
-                    <h5 class="card-title">Квас</h5>
-                    <p class="card-text">Напиток</p>
+                    <img src="" width="200px" alt="logo" class="rounded">
+                    <h5 class="card-title"></h5>
+                    <p class="card-text card-desc"></p>
                     <p class="card-text price" id="set-3"></p>
                     <div class="btn-toolbar mb-3 justify-content-center" role="toolbar"
                          aria-label="Toolbar with button groups">
@@ -264,9 +264,9 @@
 
             <div class="col-lg-4 col-md-6 p-0 dark">
                 <div class="card-body">
-                    <img src="pics/maxito.jpg" width="200px" alt="logo" class="rounded">
-                    <h5 class="card-title">Мохито</h5>
-                    <p class="card-text">Напиток</p>
+                    <img src="p" width="200px" alt="logo" class="rounded">
+                    <h5 class="card-title"></h5>
+                    <p class="card-text card-desc"></p>
                     <p class="card-text price" id="set-4"></p>
                     <div class="btn-toolbar mb-3 justify-content-center" role="toolbar"
                          aria-label="Toolbar with button groups">
@@ -281,9 +281,9 @@
 
             <div class="col-lg-4 col-md-6 p-0 dark">
                 <div class="card-body">
-                    <img src="pics/sok.jpg" width="200px" alt="logo" class="rounded">
-                    <h5 class="card-title">Сок</h5>
-                    <p class="card-text">Напиток</p>
+                    <img src="" width="200px" alt="logo" class="rounded">
+                    <h5 class="card-title"></h5>
+                    <p class="card-text card-desc"></p>
                     <p class="card-text price" id="set-5"></p>
                     <div class="btn-toolbar mb-3 justify-content-center" role="toolbar"
                          aria-label="Toolbar with button groups">
@@ -298,9 +298,9 @@
 
             <div class="col-lg-4 col-md-6 p-0 dark">
                 <div class="card-body">
-                    <img src="pics/sup.jpg" width="200px" alt="logo" class="rounded">
-                    <h5 class="card-title">Суп</h5>
-                    <p class="card-text">Первое блюдо</p>
+                    <img src="" width="200px" alt="logo" class="rounded">
+                    <h5 class="card-title"></h5>
+                    <p class="card-text card-desc"></p>
                     <p class="card-text price" id="set-6"></p>
                     <div class="btn-toolbar mb-3 justify-content-center" role="toolbar"
                          aria-label="Toolbar with button groups">
@@ -315,9 +315,9 @@
 
             <div class="col-lg-4 col-md-6 p-0 dark">
                 <div class="card-body">
-                    <img src="pics/befstroganof.jpg" width="200px" alt="logo" class="rounded">
-                    <h5 class="card-title">Бевстроганов</h5>
-                    <p class="card-text">Второе блюдо</p>
+                    <img src="" width="200px" alt="logo" class="rounded">
+                    <h5 class="card-title"></h5>
+                    <p class="card-text card-desc"></p>
                     <p class="card-text price" id="set-7"></p>
                     <div class="btn-toolbar mb-3 justify-content-center" role="toolbar"
                          aria-label="Toolbar with button groups">
@@ -332,9 +332,9 @@
 
             <div class="col-lg-4 col-md-6 p-0 dark">
                 <div class="card-body">
-                    <img src="pics/pasta.jpeg" width="200px" alt="logo" class="rounded">
-                    <h5 class="card-title">Паста</h5>
-                    <p class="card-text">Второе блюдо</p>
+                    <img src="" width="200px" alt="logo" class="rounded">
+                    <h5 class="card-title"></h5>
+                    <p class="card-text card-desc"></p>
                     <p class="card-text price" id="set-8"></p>
                     <div class="btn-toolbar mb-3 justify-content-center" role="toolbar"
                          aria-label="Toolbar with button groups">
@@ -349,9 +349,9 @@
 
             <div class="col-lg-4 col-md-6 p-0 dark">
                 <div class="card-body">
-                    <img src="pics/morodgenoe.jpg" width="200px" alt="logo" class="rounded">
-                    <h5 class="card-title">Мороженое</h5>
-                    <p class="card-text">Десерт</p>
+                    <img src="" width="200px" alt="logo" class="rounded">
+                    <h5 class="card-title"></h5>
+                    <p class="card-text card-desc"></p>
                     <p class="card-text price" id="set-9"></p>
                     <div class="btn-toolbar mb-3 justify-content-center" role="toolbar"
                          aria-label="Toolbar with button groups">
@@ -366,9 +366,9 @@
 
             <div class="col-lg-4 col-md-6 p-0 dark">
                 <div class="card-body">
-                    <img src="pics/tortic.jpg" width="200px" alt="logo" class="rounded">
-                    <h5 class="card-title">Тохтик</h5>
-                    <p class="card-text">Десерт</p>
+                    <img src="" width="200px" alt="logo" class="rounded">
+                    <h5 class="card-title"></h5>
+                    <p class="card-text card-desc"></p>
                     <p class="card-text price" id="set-10"></p>
                     <div class="btn-toolbar mb-3 justify-content-center" role="toolbar"
                          aria-label="Toolbar with button groups">
@@ -391,13 +391,13 @@
             <div class="heading-line mx-auto"></div>
         </div>
         <div class="  justify-content-around container-fluid bg-light border" style="border-color: coral">
-            <div style="width: fit-content; align-content: center">
+            <div class="checks2">
                 <label style="margin-top: 20px">
                     Я студент ВУЗа
                 </label>
                 <input type="checkbox" id="socialka" value="">
             </div>
-            <div style="width: fit-content;">
+            <div class="checks">
                 <label>
                     В два раза больше
                 </label>

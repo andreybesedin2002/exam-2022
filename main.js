@@ -87,7 +87,79 @@ function currentDiscount() {
     }
     return disc;
 }
+function appendPositions() {
+    let actualCard = document.querySelectorAll(".menuElem")
+    let i = 0;
+    // alert(actualCard[2])
+    actualCard.forEach(function (element) {
+        let actualImg = menuInformation[i].image
+        let actualName = menuInformation[i].name
+        let actualDesc = menuInformation[i].desc
 
+        let img = element.querySelector('.rounded');
+        // img.src = img.src + actualImg
+        img.src = actualImg
+
+        let menuTitle = element.querySelector('.card-title')
+        menuTitle.innerHTML = actualName
+        let menuDesc = element.querySelector('.card-desc');
+        menuDesc.innerHTML = actualDesc
+        i += 1;
+    })
+
+}
+let menuInformation = [
+    {
+        'name': 'Салат "Цезарь"',
+        'desc': 'Классический салат',
+        'image': 'pics/salat.jpg'
+    },
+    {
+        'name': 'Морс',
+        'desc': 'Напиток',
+        'image': 'pics/mors.jpg'
+    },
+    {
+        'name': 'Квас',
+        'desc': 'Напиток',
+        'image': 'pics/kvas.jpg'
+    },
+    {
+        'name': 'Мохито',
+        'desc': 'Напиток',
+        'image': 'pics/maxito.jpg'
+    },
+    {
+        'name': 'Сок',
+        'desc': 'Напиток',
+        'image': 'pics/sok.jpg'
+    },
+    {
+        'name': 'Суп',
+        'desc': 'Первое блюдо',
+        'image': 'pics/sup.jpg'
+    },
+    {
+        'name': 'Бевстроганов',
+        'desc': 'Второе блюдо',
+        'image': 'pics/befstroganof.jpg'
+    },
+    {
+        'name': 'Паста',
+        'desc': 'Второе блюдо',
+        'image': 'pics/pasta.jpg'
+    },
+    {
+        'name': 'Мороженое',
+        'desc': 'Десерт',
+        'image': 'pics/morodgenoe.jpg'
+    },
+    {
+        'name': 'Тохтик',
+        'desc': 'Десерт',
+        'image': 'pics/tortic.jpg'
+    },
+]
 function setFunk(event) {
     let oper = event.target.innerHTML;
     let pole = event.target.closest('.menuButt').querySelector('.pole');
@@ -303,6 +375,7 @@ function createMenu(id) {
     // alert(id);
     let menu = document.getElementById('gal');
     menu.style.display = 'block';
+    appendPositions()
     if (currentCom["socialPrivileges"] == true) {
         document.getElementById('socialka').disabled = false;
     } else {
