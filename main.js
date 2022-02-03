@@ -18,23 +18,12 @@ window.onload = function () {
     menuButt.forEach(function (btn) {
         btn.addEventListener('click', setFunk)
     })
-    document.getElementById('place').addEventListener('click', getToast);
-    document.getElementById('closeToast').addEventListener('click', closeToast);
+
 
 }
 
 let data
 let globSum = 0
-
-function getToast() {
-    let order = document.getElementById("myToast");
-    order.style.display = 'block';
-}
-
-function closeToast() {
-    let order = document.getElementById("myToast");
-    order.style.display = 'none';
-}
 
 function xTwo(btn) {
     if (btn != undefined) {
